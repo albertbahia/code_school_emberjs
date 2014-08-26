@@ -12,6 +12,13 @@ App.Router.map(function() {
 	this.route('credits');
 	this.resource('products');
 	this.resource('product', { path: '/products/:productName' });
+	this.resource('editProduct', { path: 'products/:productName/edit'});
+});
+
+App.ApplicationRoute = Ember.Route.extend({
+  model: function() {
+    return App.PRODUCTS;
+  }
 });
 
 App.ProductsRoute = Ember.Route.extend({
@@ -26,19 +33,32 @@ App.ProductRoute = Ember.Route.extend({
 	}
 });
 
+App.EditProductRoute = Ember.Route.extend({
+	model: function(params) {
+		return App.PRODUCTS[params.productName];
+	},
+
+	events: {
+		save: function() {
+			var product = this.modelFor('editProduct');
+			this.transitionTo('product', product);
+		}
+	}
+});
+
 // Controller(s)
 App.IndexController = Ember.Controller.extend({
 	productsCount: 6,
 	logo: '/images/logo.png',
 	time: function() {
-		return (new Date()).toDateString()
+		return (new Date()).toDateString();
 	}.property()
 });
 
 App.AboutController = Ember.Controller.extend({
 	contactName: 'Wolfgang',
 	open: function() {
-		return (new Date()).getDay()
+		return (new Date()).getDay();
 	}.property()
 });
 
@@ -57,4 +77,4 @@ App.PRODUCTS = [
 		productType: 'kitchen',
 		photo: 'http://www.placekitten.com/300/300'
 	}
-]
+];

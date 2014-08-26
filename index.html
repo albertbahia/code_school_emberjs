@@ -11,19 +11,24 @@
 </head>
 <body>
 	<script type='text/x-handlebars' data-template-name='application'>
-		<div class='navbar'>
-			<ul>
+		<div class='navbar navbar-default'>
+			<ul class='navbar-nav navbar-right'>
 				{{#link-to 'index' tagName='li'}}Homepage{{/link-to}}
 				{{#link-to 'about' tagName='li'}}About{{/link-to}}
 				{{#link-to 'products' tagName='li'}}Products{{/link-to}}
 			</ul>	
+            <ul> Product Name:
+              {{#each model}}
+                <li>{{#link-to 'product' this }}{{ productName }}{{/link-to}}</li
+              {{/each}}
+            </ul>
 		</div>
 		<div class='container'>{{ outlet }}</div>
 		<footer class='container'></div> 
 	</script>
 
 	<script type='text/x-handlebars' data-template-name='index'>
-		<h1>Welcome to the Flint & Flame!</h1>
+		<h1 class='pull-left'>Welcome to WDI June 2014 NYC Closure!</h1>
 		<h2>{{ time }}</h2>
 		<h3>Products Count: {{ productsCount }} </h3>
 	</script>
@@ -46,9 +51,23 @@
 	</script>
 
 	<script type="text/x-handlebars" data-template-name="product">
-		<h2>{{productName}}</h2>
-		<h3>{{productType}}</h3>
+		<h2>Product Name: {{productName}}</h2>
+		<h3>Product Type: {{productType}}</h3>
+		<h3>Photo</h3>
 		<img {{bind-attr src='photo'}} >
+		{{#link-to 'editProduct' this class="btn btn-primary"}}Edit{{/link-to}}
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="editProduct">
+		<h2>Edit Product</h2>
+		<form class="form-inline" {{action save on="submit"}}>
+			<label>Product Name: {{ input type="text" value=productName}}</label><br>
+			<label>Product Type: {{ input type="text" value=productType}}</label><br>
+			<label>Photo: {{ input type="text" value=photo}}</label>
+			<div class="controls">
+				<button type="submit" class="btn btn-primary">Done</button>
+			</div>
+		</form>
 	</script>
 
 	<script type='text/x-handlebars' data-template-name='credits'>
