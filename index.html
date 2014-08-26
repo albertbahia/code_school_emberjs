@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Flint & Flame</title>
+	<title>GA WDI June 2014 NYC Closure</title>
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="http://builds.emberjs.com/handlebars-1.0.0.js"></script>
     <script src="http://builds.emberjs.com/tags/v1.1.2/ember.js"></script>
@@ -17,11 +17,13 @@
 				{{#link-to 'about' tagName='li'}}About{{/link-to}}
 				{{#link-to 'products' tagName='li'}}Products{{/link-to}}
 			</ul>	
+			//--Displays Product List / For Two Way Data Binding Demo only ------
             <ul> Product Name:
               {{#each model}}
                 <li>{{#link-to 'product' this }}{{ productName }}{{/link-to}}</li
               {{/each}}
             </ul>
+            // ---------------------------------------
 		</div>
 		<div class='container'>{{ outlet }}</div>
 		<footer class='container'></div> 
@@ -45,8 +47,9 @@
 		{{#each}}
 			{{#link-to 'product' this classNames='list-group-item'}}
 			<p>Product Name: {{productName}}</p>
-			{{/link-to}}
 			<img {{bind-attr src='photo'}} >
+			{{/link-to}}
+			
 		{{/each}}
 	</script>
 

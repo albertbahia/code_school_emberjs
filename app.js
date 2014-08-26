@@ -15,11 +15,13 @@ App.Router.map(function() {
 	this.resource('editProduct', { path: 'products/:productName/edit'});
 });
 
+// ----Shows Product List in index.html (navbar) for Two Way Data Binding demo only----------
 App.ApplicationRoute = Ember.Route.extend({
   model: function() {
     return App.PRODUCTS;
   }
 });
+// ----------------------------------
 
 App.ProductsRoute = Ember.Route.extend({
 	model: function() {
