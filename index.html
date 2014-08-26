@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flint & Flame</title>
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://builds.emberjs.com/handlebars-1.0.0.js"></script>
+    <script src="http://builds.emberjs.com/tags/v1.1.2/ember.js"></script>
+    <script src="http://builds.emberjs.com/tags/v1.0.0-beta.3/ember-data.js"></script>
+    <script src='app.js'></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+	<script type='text/x-handlebars' data-template-name='application'>
+		<div class='navbar'>
+			<ul>
+				{{#link-to 'index' tagName='li'}}Homepage{{/link-to}}
+				{{#link-to 'about' tagName='li'}}About{{/link-to}}
+				{{#link-to 'products' tagName='li'}}Products{{/link-to}}
+			</ul>	
+		</div>
+		<div class='container'>{{ outlet }}</div>
+		<footer class='container'></div> 
+	</script>
+
+	<script type='text/x-handlebars' data-template-name='index'>
+		<h1>Welcome to the Flint & Flame!</h1>
+		<h2>{{ time }}</h2>
+		<h3>Products Count: {{ productsCount }} </h3>
+	</script>
+
+	<script type='text/x-handlebars' data-template-name='about'>
+		<h1>About The Fire Spirits</h1>
+		<h2>Contact: {{ contactName }}</h2>
+		<h3>Open: {{ open }}</h3>
+	</script>
+
+	<script type='text/x-handlebars' data-template-name='products'>
+		<h2>Products</h2>
+		<h2>Products:</h2>
+		{{#each}}
+			<p>Product Name: {{productName}}</p>
+			<p>Product Type: {{productType}}</p>
+		{{/each}}
+	</script>
+
+	<script type='text/x-handlebars' data-template-name='credits'>
+		<h1>Credits</h1>
+	</script>
+</body>
+</html>
