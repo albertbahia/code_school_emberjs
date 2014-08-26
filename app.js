@@ -6,7 +6,6 @@ var App = Ember.Application.create({
 App.Router.map(function() {
 	console.log(this);
 	this.route('about'); //url path is overwritten with #/aboutus 
-	//this.route('about',  { path: '/aboutus' } )
 	
 	// App.AboutController = Ember.Controller.extend({}); already created behind this scenes.  No need to explicity write it out.
 
@@ -50,10 +49,12 @@ App.AboutController = Ember.Controller.extend({
 App.PRODUCTS = [
 	{
 		productName: 'toaster',
-		productType: 'kitchen'
+		productType: 'kitchen',
+		photo: 'http://www.placekitten.com/300/300'
 	},
 	{
 		productName: 'blender',
-		productType: 'kitchen'
+		productType: 'kitchen',
+		photo: 'http://www.placekitten.com/300/300'
 	}
 ]

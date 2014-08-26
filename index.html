@@ -38,9 +38,17 @@
 		<h2>Products</h2>
 		<h2>Products:</h2>
 		{{#each}}
+			{{#link-to 'product' this classNames='list-group-item'}}
 			<p>Product Name: {{productName}}</p>
-			<p>Product Type: {{productType}}</p>
+			{{/link-to}}
+			<img {{bind-attr src='photo'}} >
 		{{/each}}
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="product">
+		<h2>{{productName}}</h2>
+		<h3>{{productType}}</h3>
+		<img {{bind-attr src='photo'}} >
 	</script>
 
 	<script type='text/x-handlebars' data-template-name='credits'>
