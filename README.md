@@ -3,4 +3,4 @@
 ### Files in repo:
 
 * app.js
-* index.html (structured for two data binding demo)
+* index.html (structured for two way data binding demo)
