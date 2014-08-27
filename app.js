@@ -59,6 +59,7 @@ App.IndexController = Ember.Controller.extend({
 
 App.AboutController = Ember.Controller.extend({
 	contactName: 'Wolfgang',
+	photo: 'http://www.petbattlearena.com/img/pic521.png',
 	open: function() {
 		return (new Date()).getDay();
 	}.property()
