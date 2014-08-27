@@ -4,7 +4,7 @@
 	<title>GA WDI June 2014 NYC Closure</title>
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="http://builds.emberjs.com/handlebars-1.0.0.js"></script>
-    <script src="http://builds.emberjs.com/tags/v1.1.2/ember.js"></script>
+    <script src="http://builds.emberjs.com/release/ember.min.js"></script>
     <script src="http://builds.emberjs.com/tags/v1.0.0-beta.3/ember-data.js"></script>
     <script src='app.js'></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -12,18 +12,20 @@
 <body>
 	<script type='text/x-handlebars' data-template-name='application'>
 		<div class='navbar navbar-default'>
-			<ul class='navbar-nav navbar-right'>
-				{{#link-to 'index' tagName='li'}}Homepage{{/link-to}}
-				{{#link-to 'about' tagName='li'}}About{{/link-to}}
-				{{#link-to 'products' tagName='li'}}Products{{/link-to}}
-			</ul>	
+			<div class='container'>
+				<ul class='nav navbar-nav navbar-right'>
+					<button><span>{{#link-to 'index' tagName='li'}}Homepage{{/link-to}}</span></button>
+					<button><span>{{#link-to 'about' tagName='li'}}About{{/link-to}}</span></button>
+					<button><span>{{#link-to 'products' tagName='li'}}Products{{/link-to}}</span></button>
+				</ul>	
 			//--Displays Product List / For Two Way Data Binding Demo only ------
-            <ul> Product Name:
-              {{#each model}}
-                <li>{{#link-to 'product' this }}{{ productName }}{{/link-to}}</li
-              {{/each}}
-            </ul>
+	            <ul> Product Name:
+	              {{#each model}}
+	                <li>{{#link-to 'product' this }}{{ productName }}{{/link-to}}</li
+	              {{/each}}
+	            </ul>
             // ---------------------------------------
+			</div>
 		</div>
 		<div class='container'>{{ outlet }}</div>
 		<footer class='container'></div> 
@@ -31,7 +33,7 @@
 
 	<script type='text/x-handlebars' data-template-name='index'>
 		<h1>Welcome to WDI June 2014 NYC Closure!</h1>
-		<h2>{{ time }}</h2>
+		<h2>Today is: {{ time }}</h2>
 		<h3>Products Count: {{ productsCount }} </h3>
 	</script>
 

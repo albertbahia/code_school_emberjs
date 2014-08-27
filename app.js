@@ -50,7 +50,7 @@ App.EditProductRoute = Ember.Route.extend({
 
 // Controller(s)
 App.IndexController = Ember.Controller.extend({
-	productsCount: 6,
+	productsCount: 2,
 	logo: '/images/logo.png',
 	time: function() {
 		return (new Date()).toDateString();
@@ -63,10 +63,6 @@ App.AboutController = Ember.Controller.extend({
 		return (new Date()).getDay();
 	}.property()
 });
-
-// App.ProductsController = Ember.Controller.extend({
-// 	m
-// });
 
 App.PRODUCTS = [
 	{
